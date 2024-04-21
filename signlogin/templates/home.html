@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>main</title>
+    <style>
+        #testimonial{
+    text-align: center;
+    padding-bottom: 50px;
+
+}
+.test_text{
+    padding: 95px;
+    background: #f1f1f1;
+    margin-top: 120px;
+    position: relative;
+}
+.common_head h2{
+
+    font-size: 50px;
+
+}
+.test_text:after{
+    position: absolute;
+    content: '';
+    left: 50%;
+    top: -40px;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid #f1f1f1;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    transform: translateX(-50%);
+}
+
+.admin-logo {
+            top:23%;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            background-color: #007bff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+        }
+.admin-logo img{
+      width: 100%;
+    max-width: 100%;
+     border-radius: 50%;
+}
+.btn{
+    padding: 20px 70px;
+    background: #706e6e;
+    color: #fff;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    box-shadow:  #0f0f0f;
+}
+    </style>
+</head>
+<body>
+   <section id="testimonial">
+        <div class="container">
+            <div class="common_head">
+                <h2>Admin</h2>
+            </div>
+            <div class="test_row">
+                   <div class="admin-logo">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKLQUedBINtPyubCBYuU4a3s8z7kod1Pvli7Tck_CIWA&s" alt="">
+                   </div>
+                    <div class="test_text">
+                        <a href="#" class="btn btn-outline-primary"> Admin Profile </a><br><br><br><br>
+                        <a href="{% url 'add_bin' %}" class="btn btn-outline-primary"> Add Bin </a><br><br><br><br>
+                        <a href="{% url 'bin_info' %}" class="btn btn-outline-primary"> Bin information </a><br><br><br><br>
+                        <a href="#" class="btn btn-outline-primary"> Tracking </a><br><br><br><br>
+                        <a href="#" class="btn btn-outline-primary"> Transaction </a><br><br><br><br>
+                        <a href="{% url 'logout' %}" class="btn btn-outline-primary"> Logout </a><br><br><br>
+                    </div>
+                </div>
+        </div>
+
+
+ </section>
+</body>
+</html>

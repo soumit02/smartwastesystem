@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for i in app1 %}
+ {{i.Bin_id }}<br>
+ {{i.Bin_location }}<br>
+<a href="{% url 'delete_bin' i.id %}">Delete</a><br>
+<br><br>
+{% endfor %}
+
+</body>
+</html>
