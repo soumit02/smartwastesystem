@@ -3,14 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #6f9362;
+        }
+        .map-info{
+        align-item:center;
+        }
+        .map-text{
+        text-align:center;
+         color: #000;
+         }
+         .map {
+            margin-bottom: 30px;
+            background-color: #4d763f; /* Background color for bin-info */
+            padding: 20px; /* Padding for bin-info */
+            border-radius: 8px; /* Rounded corners for bin-info */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow for bin-info */
+         }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            text-align:center;
+        }
+        .row h3{
+         font-size: 30px;
+        }
+        .bin-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            background-color: #bdc4be; /* Background color for bin-info */
+            padding: 20px; /* Padding for bin-info */
+            border-radius: 8px; /* Rounded corners for bin-info */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow for bin-info */
+        }
+
+        .bin-logo {
+            flex-shrink: 0;
+            margin-right: 100px;
+        }
+
+        .bin-logo img {
+            max-width: 30px;
+            border-radius: 5px;
+        }
+
+        .bin-text {
+            flex-grow: 1;
+             margin-right: 1100px;
+        }
+
+        .bin-text p {
+            margin: 5px 0;
+            color: #666666;
+        }
+
+        .bin-text a {
+            color: #007bff;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        .bin-text a:hover {
+            text-decoration: underline;
+        }
+        .percentage-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            border: 2px solid #596a5d;
+            color: #a2bfa5;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        .percentage-button:hover {
+            background-color: #a2bfa5;
+            color: #fff;
+        }
+        .clr {
+            clear: both;
+        }
+    </style>
 </head>
 <body>
-{% for i in app1 %}
- {{i.Bin_id }}<br>
- {{i.Bin_location }}<br>
-<a href="{% url 'delete_bin' i.id %}">Delete</a><br>
-<br><br>
-{% endfor %}
-
+<div class="map-info">
+    <div class="map-text ">
+        <h2>Bin</h2>
+    </div>
+ <div class="map">
+     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4342.462252543788!2d90.38365024701532!3d23.76303142482881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8abd1986c19%3A0x14e06df6918d8844!2sBangladesh%20National%20Parliament!5e0!3m2!1sen!2sbd!4v1617616410472!5m2!1sen!2sbd" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+ </div>
+</div>
+<div class="row">
+    <div class="col-lg-6 order-1 order-lg-2">
+        <div class="about_text text-center">
+            <h3>Waste Bins</h3>
+            {% for i in app1 %}
+            <div class="bin-info">
+                <div class="bin-logo">
+                    <img src="https://img.freepik.com/premium-vector/recycle-bin…-illustration-recycle-bin-flat-icon_791907-85.jpg" alt="">
+                </div>
+                <div class="bin-text">
+                    <p>Bin ID: {{ i.Bin_id }}</p>
+                    <p>Bin Location: {{ i.Bin_location }}</p>
+                    <a href="{% url 'delete_bin' i.id %}">Delete</a>
+                </div>
+                <button class="percentage-button">0%</button>
+            </div>
+            <br><br>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<div class="clr"></div>
 </body>
 </html>

@@ -18,38 +18,22 @@
 }
 body{
     background-color: #380269;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Add this to prevent scrolling */
 }
 .background{
-    width: 430px;
-    height: 520px;
     position: absolute;
-    transform: translate(-50%,-50%);
-    left: 50%;
-    top: 50%;
-}
-.background .shape{
-    height: 200px;
-    width: 200px;
-    position: absolute;
-    border-radius: 50%;
-}
-.shape:first-child{
-    background: linear-gradient(
-        #01040f,
-        #23a2f6
-    );
-    left: -80px;
-    top: -80px;
-}
-
-.shape:last-child{
-    background: linear-gradient(
-        to right,
-        #f62e08,
-        #f09819
-    );
-    right: -30px;
-    bottom: -80px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://media.licdn.com/dms/image/C5112AQHfbj9Uve3J2Q/article-cover_image-shrink_600_2000/0/1533013630729?e=2147483647&v=beta&t=eiroNvGByT9kAzzST5Jb1UvRVPxlTA1g9eBjVFCAuY8');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(50%);
+    z-index: -1; /* Move the background behind other elements */
 }
 form{
     height: 600px;
@@ -137,8 +121,7 @@ button{
 </head>
 <body>
     <div class="background">
-        <div class="shape"></div>
-        <div class="shape"></div>
+         <img src="https://media.licdn.com/dms/image/C5112AQHfbj9Uve3J2Q/article-cover_image-shrink_600_2000/0/1533013630729?e=2147483647&v=beta&t=eiroNvGByT9kAzzST5Jb1UvRVPxlTA1g9eBjVFCAuY8" alt="">
     </div>
     <form action="" method="post">
         {% csrf_token %}
